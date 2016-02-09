@@ -1,4 +1,4 @@
-# Node.js running on Alpine
+# Node.js 4 running on Alpine
 This is basically https://hub.docker.com/r/mhart/alpine-node/ with the modifications needed to run applications on /var/www
 
 To build
