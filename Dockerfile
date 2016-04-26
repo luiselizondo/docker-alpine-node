@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:4
+FROM mhart/alpine-node:0.12
 MAINTAINER Luis Elizondo "lelizondo@gmail.com"
 
 RUN apk add --update make gcc g++ python && \
