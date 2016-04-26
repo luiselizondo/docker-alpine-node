@@ -1,5 +1,12 @@
-# Node.js 4 running on Alpine
-This is basically https://hub.docker.com/r/mhart/alpine-node/ with the modifications needed to run applications on /var/www
+# Node.js running on Alpine
+
+Tags available:
+
+- 0.12. Uses https://hub.docker.com/r/mhart/alpine-node/
+- latest, 4, 4.3
+- 5, 5.10
+
+All images have the modifications needed to run applications on /var/www
 
 Includes the following Node.js modules installed globally
 
@@ -11,3 +18,8 @@ To build
 
 Running
 The image will run npm start on /var/www, whatever you throw at it it will run
+
+### Todo
+
+mhart/alpine-node/ is not an automated build, so I don't know what's intalled in there.
+Compile 0.12 directly.
