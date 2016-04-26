@@ -1,7 +1,9 @@
 FROM alpine:edge
 MAINTAINER Luis Elizondo "lelizondo@gmail.com"
 
-RUN apk add --no-cache nodejs && \
+ENV NODE_VERSION 4.3.0-r0
+
+RUN apk add --no-cache nodejs=${NODE_VERSION} && \
     apk add --update make gcc g++ python && \
 		apk del make gcc g++ python && \
 		rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp ; mkdir -p /var/www ; \
