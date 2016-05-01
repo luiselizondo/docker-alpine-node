@@ -9,23 +9,18 @@ RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
     echo "http://dl-2.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-3.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-4.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
-    echo "http://dl-5.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
-
-RUN apk add --update linux-headers make gcc g++ python curl
-
-RUN curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
+    echo "http://dl-5.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories && \
+    apk add --update linux-headers make gcc g++ python curl libstdc++ libgcc && \
+    curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
     cd /tmp && \
-    tar zxvf node-v${NODE_VERSION}.tar.gz
-
-
-RUN cd ${NODE_DIR} && \
+    tar zxvf node-v${NODE_VERSION}.tar.gz && \
+    cd ${NODE_DIR} && \
     ./configure --without-snapshot && \
     make && \
-    make install
-
-RUN apk del --update make gcc g++ python && \
+    make install && \
+    apk del --update make gcc g++ python && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp ; mkdir -p /var/www ; \
-		npm install -g express-generator bower mocha sinon should assert grunt-cli gulp node-gyp
+	npm install -g express-generator bower mocha sinon should assert grunt-cli gulp node-gyp
 
 WORKDIR /var/www
 EXPOSE 3000
