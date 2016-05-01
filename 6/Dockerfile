@@ -18,7 +18,7 @@ RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
     ./configure --without-snapshot && \
     make && \
     make install && \
-    apk del --update make gcc g++ python && \
+    apk del --update linux-headers make gcc g++ python curl libstdc++ libgcc && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp ; mkdir -p /var/www ; \
 	npm install -g express-generator bower mocha sinon should assert grunt-cli gulp node-gyp
 
