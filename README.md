@@ -3,8 +3,8 @@
 Tags available:
 
 - 0.12. Uses https://hub.docker.com/r/mhart/alpine-node/
-- latest, 4, 4.3
-- 6, 6.0.0
+- 4, 4.3
+- latest, 6, 6.0.0
 
 All images have the modifications needed to run applications on /var/www
 
