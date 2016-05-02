@@ -10,15 +10,16 @@ RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
     echo "http://dl-3.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-4.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-5.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories && \
-    apk add --update linux-headers make gcc g++ python curl libstdc++ libgcc && \
-    curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
+    apk add --update linux-headers make gcc g++ python curl libstdc++ libgcc
+
+RUN curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
     cd /tmp && \
     tar zxvf node-v${NODE_VERSION}.tar.gz && \
     cd ${NODE_DIR} && \
-    ./configure --without-snapshot && \
+    ./configure --without-snapshot --with-intl=none  && \
     make && \
     make install && \
-    apk del --update linux-headers make gcc g++ python curl libstdc++ libgcc && \
+    apk del --update linux-headers make gcc g++ python=2.7.11-r3 curl clang libstdc++ libgcc libexecinfo && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp ; mkdir -p /var/www ; \
 	npm install -g express-generator bower mocha sinon should assert grunt-cli gulp node-gyp
 
