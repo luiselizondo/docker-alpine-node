@@ -1,8 +1,8 @@
 FROM alpine:3.3
 MAINTAINER Luis Elizondo "lelizondo@gmail.com"
 
-ENV NODE_VERSION 6.0.0
-ENV NODE_URL https://nodejs.org/dist/v6.0.0/node-v6.0.0.tar.gz
+ENV NODE_VERSION 6.1.0
+ENV NODE_URL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}.tar.gz
 ENV NODE_DIR /tmp/node-v${NODE_VERSION}
 
 RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
