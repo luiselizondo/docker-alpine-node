@@ -1,8 +1,8 @@
 FROM alpine:3.3
 MAINTAINER Luis Elizondo "lelizondo@gmail.com"
 
-ENV NODE_VERSION 6.0.0
-ENV NODE_URL https://nodejs.org/dist/v6.0.0/node-v6.0.0.tar.gz
+ENV NODE_VERSION 6.2.1
+ENV NODE_URL https://nodejs.org/dist/v6.0.0/node-v${NODE_VERSION}.tar.gz
 ENV NODE_DIR /tmp/node-v${NODE_VERSION}
 
 RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
@@ -10,8 +10,9 @@ RUN echo "http://dl-1.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
     echo "http://dl-3.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-4.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories; \
     echo "http://dl-5.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories && \
-    apk add --update linux-headers make gcc g++ python curl libstdc++ libgcc && \
-    curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
+    apk add --update linux-headers make gcc g++ python curl libstdc++ libgcc
+
+RUN curl -o /tmp/node-v${NODE_VERSION}.tar.gz ${NODE_URL} && \
     cd /tmp && \
     tar zxvf node-v${NODE_VERSION}.tar.gz && \
     cd ${NODE_DIR} && \
