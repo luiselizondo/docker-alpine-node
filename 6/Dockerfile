@@ -1,7 +1,7 @@
 FROM python:2-alpine
 MAINTAINER Luis Elizondo "lelizondo@gmail.com"
 
-ENV NODE_VERSION 6.7.0-r0
+ENV NODE_VERSION 6.7.0-r1
 
 RUN apk add --no-cache nodejs=${NODE_VERSION} make gcc g++ git && \
 		rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp ; mkdir -p /var/www ; \
