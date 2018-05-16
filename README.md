@@ -4,7 +4,8 @@ Tags available:
 
 - 0.12. Uses https://hub.docker.com/r/mhart/alpine-node/
 - 4, 4.3
-- latest, 6, 6.6.0
+- 6, 6.6.0
+- latest, 8
 
 All images have the modifications needed to run applications on /var/www
 
@@ -19,7 +20,7 @@ To build
 Running
 The image will run npm start on /var/www, whatever you throw at it it will run
 
-### Todo
+### Note on 0.12
 
-mhart/alpine-node/ is not an automated build, so I don't know what's intalled in there.
+mhart/alpine-node/ is not an automated build, so I don't know what's installed in there.
 Compile 0.12 directly.
