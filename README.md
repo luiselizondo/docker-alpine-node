@@ -9,9 +9,11 @@ Tags available:
 
 All images have the modifications needed to run applications on /var/www
 
-Includes the following Node.js modules installed globally
+Versions from 0.12 to 6 includes the following Node.js modules installed globally
 
 express-generator bower mocha sinon should assert grunt-cli gulp node-gyp
+
+Version 8 does not include grunt, gulp and bower
 
 To build
 
